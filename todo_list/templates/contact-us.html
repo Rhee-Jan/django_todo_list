@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1> <i> Contact details </i> </h1>
+	<form class="form-inline my-2 my-lg-0" method="POST">
+				{% csrf_token %}
+				<input class="form-control mr-sm-2" type="search" placeholder="Name here" aria-label="Search" name="cname">
+				<input class="form-control mr-sm-2" type="search" placeholder="Number here" aria-label="Search" name="cnum">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add Contact num</button>
+			</form>
+	{% if all_cont %}
+	<table class="table">
+		
+			<tr>
+			{% for data in all_cont %}
+				<td>
+					{{ data.cname }} | {{ data.cnum }}
+				</td>
+				<td><a href="{% url 'deletecont' data.id %}">| Delete</a></td>
+			</tr>
+		{%endfor%}
+		{%endif%}
+	</table>
+		
+{% endblock %}
+

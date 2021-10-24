@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+
+	{% if messages %}
+  	<ul class ="messages">
+   	 {% for message in messages %}
+     	 <li{% if message.tags %} class = "{{ message.tags }}" {% endif %}> {{ message }} </li>
+    	  {% endfor %}
+  	</ul>
+	{% endif %}
+
+
+	<h1> ADD PROFILE </h1>
+	<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+	<input class="form-control mr-sm-2" placeholder = "Full Name" type="text" name="fullname">
+	<input class="form-control mr-sm-2" placeholder = "Adress" type="text" name="address">
+
+
+	<p><label for="id_profile_type">Profile type:</label> <select name="profile_type" required id="id_profile_type">
+  	<option placeholder = "choose type" value="" selected>---------</option>
+ 	<option value="Patient">Patient</option>
+ 	<option value="Employee">Employee</option>
+	</select></p>
+
+
+	<input class="form-control mr-sm-2" placeholder = "Birth Day" type="date" name="bday">
+	<input class="form-control mr-sm-2" placeholder = "Age" type="text" name="age">
+	<input class="form-control mr-sm-2" placeholder = "Deci number" type="text" name="deci_number">
+
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Save
+	<!--<button class="btn btn-outline-success my-2 my-sm-0" type="submit"> <a href="{%url 'addcontact' %}">Save</a> -->
+
+
+	</button></form>
+
+<!-- <input type="radio" id="profile_choice_1" name="profile_type" value="Patient">
+<label for="profile_choice_1">Patient</label><br>
+<input type="radio" id="profile_choice_2" name="profile_type" value="Employee">
+<label for="profile_choice_1">Employee</label><br> -->
+
+
+
+{%endblock%}
+<!--{{ form.as_p }} -->
+
+<!-- 
+	<h1> ADD PROFILE </h1>
+	<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+
+	<input class="form-control mr-sm-2" placeholder = "Full Name" type="text" name="fullname">
+	<input class="form-control mr-sm-2" placeholder = "Adress" type="text" name="address">
+
+
+	<p><label for="id_profile_type">Profile type:</label> <select name="profile_type" required id="id_profile_type">
+  	<option placeholder = "choose type" value="" selected>---------</option>
+ 	<option value="Patient">Patient</option>
+ 	<option value="Employee">Employee</option>
+	</select></p>
+
+
+	<input class="form-control mr-sm-2" placeholder = "Birth Day" type="date" name="bday">
+	<input class="form-control mr-sm-2" placeholder = "Age" type="text" name="age">
+	<input class="form-control mr-sm-2" placeholder = "Deci number" type="text" name="deci_number">
+
+
+
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Save
+
+
+	</button></form>
+
+
+
+
+-->
+	

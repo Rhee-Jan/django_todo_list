@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+
+	<h1> ADD CONTACT OF {{ p_id }} </h1>
+	<form class="form-inline my-2 my-lg-0" method="POST">
+	{% csrf_token %}
+
+	<input class="form-control mr-sm-2" value = {{ p_id }} type="text" name="prof_id" readonly>
+	<input class="form-control mr-sm-2" placeholder = "Full Name" type="text" name="c_name">
+	<input class="form-control mr-sm-2" placeholder = "Adress" type="text" name="c_address">
+	<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Save
+
+
+	</button></form>
+
+
+
+
+{%endblock%}
+	
